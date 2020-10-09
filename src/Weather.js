@@ -59,9 +59,7 @@ function Weather(props) {
                 <span className="Temperature">
                   {Math.round(weatherData.temperature)}
                 </span>
-                <span className="Units">
-                  <a href="">°C</a> | <a href="">°F</a>
-                </span>
+                <span className="Units">°C | °F</span>
               </div>
             </div>
           </div>
