@@ -13,6 +13,7 @@ function App() {
           <a
             href="https://github.com/jnasmbrd/react-weatherapp-finalproject.git"
             target="_blank"
+            rel="noopener noreferrer"
           >
             open source code
           </a>{" "}
@@ -20,6 +21,7 @@ function App() {
           <a
             href="https://www.shecodes.io/students/173-janice-asumbrado"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Janice Asumbrado.
           </a>
