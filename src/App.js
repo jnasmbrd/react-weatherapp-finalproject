@@ -17,7 +17,10 @@ function App() {
             open source code
           </a>{" "}
           by{" "}
-          <a href="" target="_blank">
+          <a
+            href="https://www.shecodes.io/students/173-janice-asumbrado"
+            target="_blank"
+          >
             Janice Asumbrado.
           </a>
         </footer>
