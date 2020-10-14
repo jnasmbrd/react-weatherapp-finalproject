@@ -27,7 +27,6 @@
 .Weather canvas {
   margin-top: 10px;
   margin-right: 5px;
-  display: inline-block;
 }
 .Weather .Temperature {
   color: #000000;
