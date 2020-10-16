@@ -15,10 +15,15 @@ function WeatherForecast(props) {
   if (loaded && props.city === forecast.city.name) {
     //console.log(forecast.list[0].main.temp);
     return (
-      <div className="WeatherForecast row">
-        {forecast.list.slice(0, 6).map(function (forecastItem) {
-          return <WeatherForecastPreview data={forecastItem} />;
-        })}
+      <div>
+        <span className="WeatherForecastHours">
+          The Weather Forecast in every 3 hours:
+        </span>
+        <div className="WeatherForecast row">
+          {forecast.list.slice(0, 6).map(function (forecastItem) {
+            return <WeatherForecastPreview data={forecastItem} />;
+          })}
+        </div>
       </div>
     );
   } else {

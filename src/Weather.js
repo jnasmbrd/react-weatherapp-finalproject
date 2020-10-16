@@ -24,10 +24,11 @@ function Weather(props) {
 
   function searchCity() {
     const apiKey = "6df68f5433f668287bfc545331edd9d1";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUnit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${apiUnit}`;
     axios.get(apiUrl).then(handleResponse);
   }
-
+  //Search City
   function handleSubmit(event) {
     event.preventDefault();
     searchCity();
@@ -36,26 +37,47 @@ function Weather(props) {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
+
+  //Geolocation
+  function RetrivePosition(position) {
+    const apiKey = "6df68f5433f668287bfc545331edd9d1";
+    let apiUnit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${apiUnit}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function getCurrentLocation(event) {
+    navigator.geolocation.getCurrentPosition(RetrivePosition);
+  }
+  function handleClick(event) {
+    event.preventDefault();
+    getCurrentLocation();
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-8">
               <input
                 type="search"
                 placeholder="Enter a city..."
                 className="form-control"
-                autoFocus="on"
+                autoFocus="off"
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary w-100"
-              />
+            <div className="SearchCityButton">
+              <button type="submit" className="btn btn-outline-dark">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div className="CurrentLocationButton col-1">
+              <button onClick={handleClick} className="btn btn-outline-light">
+                <i className="fas fa-location-arrow"></i>
+                {"  "}
+              </button>
             </div>
           </div>
         </form>
@@ -65,7 +87,7 @@ function Weather(props) {
     );
   } else {
     searchCity();
-    return "Loading...";
+    return <h3>Loading</h3>;
   }
 }
 export default Weather;

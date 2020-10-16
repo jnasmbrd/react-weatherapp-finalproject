@@ -3,33 +3,32 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
+import "./WeatherInfo.css";
+
 function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1 className="city">{props.data.city}</h1>
-      <ul>
-        <li>
-          <FormattedDate date={props.data.date} />
-        </li>
-        <li className="text-capitalize">{props.data.description}</li>
-      </ul>
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="clearfix">
-            <div className="float-left">
-              <WeatherIcon code={props.data.icon} />
-            </div>
-
-            <div className="float-left">
-              <WeatherTemperature celsius={props.data.temperature} />{" "}
-            </div>
-          </div>
-        </div>
+      <span className="FormattedDate-css">
+        <FormattedDate date={props.data.date} />
+      </span>
+      <div className="row">
         <div className="col-6">
           <ul>
-            <li>Humidity: {props.data.humidity} %</li>
-            <li>Wind: {props.data.wind} km/h</li>
+            <li className="city">{props.data.city}</li>
+            <li className="text-capitalize">{props.data.description}</li>
+            <li className="humidity">Humidity: {props.data.humidity} %</li>
+            <li className="wind">Wind: {props.data.wind} km/h</li>
           </ul>
+        </div>
+        <div className="col-6">
+          <div className="icon-temp row">
+            <div className="icon col-4">
+              <WeatherIcon code={props.data.icon} />
+            </div>
+            <div className="temp col-8">
+              <WeatherTemperature celsius={props.data.temperature} />
+            </div>
+          </div>
         </div>
       </div>
     </div>

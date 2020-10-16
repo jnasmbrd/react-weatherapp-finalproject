@@ -9,22 +9,35 @@ function App() {
         <h1 className="header1">Weather App</h1>
         <Weather defaultCity="Edmonton" />
         <footer>
-          This is{" "}
+          This project was coded by{" "}
           <a
+            className="Footer-Source-Code"
+            href="https://www.shecodes.io/students/173-janice-asumbrado"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Janice Asumbrado
+          </a>{" "}
+          and is{" "}
+          <a
+            className="Footer-Source-Code"
             href="https://github.com/jnasmbrd/react-weatherapp-finalproject.git"
             target="_blank"
             rel="noopener noreferrer"
           >
             open source code
           </a>{" "}
-          by{" "}
+          in Github and
           <a
-            href="https://www.shecodes.io/students/173-janice-asumbrado"
+            className="Footer-Source-Code"
+            href="https://happy-swirles-d2eea1.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Janice Asumbrado.
-          </a>
+            {" "}
+            hosted
+          </a>{" "}
+          in Netlify .
         </footer>
       </div>
     </div>
